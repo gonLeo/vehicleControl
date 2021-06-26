@@ -11,21 +11,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "vehicle")
 public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Column(name = "id")
     private Long id;
+    
     @Column(name = "brand")
     private String brand;
+    
     @Column(name = "model")
     private String model;
+    
     @Column(name = "year")
     private int year;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    @Column(name = "user")
+    
+    @ManyToOne(fetch = FetchType.LAZY)    
+    @JoinColumn(name = "userId", referencedColumnName = "id")    
     private User user;
 
     public Long getId() {
