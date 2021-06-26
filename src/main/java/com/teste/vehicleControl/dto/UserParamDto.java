@@ -1,5 +1,7 @@
 package com.teste.vehicleControl.dto;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +20,7 @@ public class UserParamDto {
     private String cpf;
     
     @NotNull
-    private int birthDate;
+    private Date birthDate;
 
     public String getName() {
         return name;
@@ -44,12 +46,12 @@ public class UserParamDto {
         this.cpf = cpf;
     }
 
-    public int getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(int birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
+    }    
     
 }
