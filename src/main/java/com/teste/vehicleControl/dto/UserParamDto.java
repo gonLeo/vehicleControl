@@ -3,23 +3,26 @@ package com.teste.vehicleControl.dto;
 import java.util.Date;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 public class UserParamDto {
-    @NotNull
+    @NotBlank
     private String name;
     
     @Email
-    @NotNull
+    @NotBlank
     private String email;
     
     @CPF
-    @NotNull
+    @NotBlank
     private String cpf;
     
     @NotNull
+    @PastOrPresent
     private Date birthDate;
 
     public String getName() {
