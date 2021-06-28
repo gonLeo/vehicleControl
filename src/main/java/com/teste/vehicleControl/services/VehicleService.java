@@ -1,7 +1,11 @@
 package com.teste.vehicleControl.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.Valid;
 
+import com.teste.vehicleControl.dto.VehicleData;
 import com.teste.vehicleControl.dto.VehicleParamDto;
 import com.teste.vehicleControl.exception.UserNotFoundException;
 import com.teste.vehicleControl.models.User;
@@ -46,6 +50,15 @@ public class VehicleService {
     private User verifyUser(String userCpf) {
         User user = userService.findByCpf(userCpf).orElseThrow(() -> new UserNotFoundException("user not found"));
         return user;
+    }
+
+    public List<Vehicle> findByUser(User user) {
+        return repository.findByUser(user);
+    }
+
+    public List<VehicleData> fromEntityToParamDto(List<Vehicle> vehicles) {
+        return vehicles.stream().map(vehicle -> new ModelMapper().map(vehicle, VehicleData.class))
+                .collect(Collectors.toList());
     }
 
 }
