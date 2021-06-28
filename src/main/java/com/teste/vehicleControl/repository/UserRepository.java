@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findAllByCpf(String cpf);
+    Optional<User> findByCpf(String cpf);
 
-    Optional<User> findAllByEmail(String email);
+    Optional<User> findByEmail(String email);    
     
 }

@@ -1,19 +1,20 @@
 package com.teste.vehicleControl.dto;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class VehicleParamDto {
-    @NotNull
+    @NotEmpty
     private String brand;
 
-    @NotNull
+    @NotEmpty
     private String model;
 
     @NotNull
-    private int year;
+    private String year;
 
-    @NotNull
-    private Long userId;
+    @NotEmpty
+    private String userCpf;
 
     public String getBrand() {
         return brand;
@@ -29,23 +30,25 @@ public class VehicleParamDto {
 
     public void setModel(String model) {
         this.model = model;
-    }
+    }    
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserCpf() {
+        return userCpf;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserCpf(String userCpf) {
+        this.userCpf = userCpf;
     }
+
+    
 
     
 }

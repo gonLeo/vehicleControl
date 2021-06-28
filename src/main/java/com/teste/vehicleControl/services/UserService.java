@@ -25,23 +25,23 @@ public class UserService {
     }
 
     private void validateUser(String cpf, String email) {
-        Optional<User> userEmail = findAllByEmail(email);
+        Optional<User> userEmail = findByEmail(email);
         if(userEmail.isPresent()){            
             throw new UserAlreadyExistsException("Already exists a user with this email");
         }
         
-        Optional<User> userCpf = findAllByCpf(cpf);                
+        Optional<User> userCpf = findByCpf(cpf);                
         if(userCpf.isPresent()){            
             throw new UserAlreadyExistsException("Already exists a user with this cpf");
         }
     }
 
-    private Optional<User> findAllByCpf(String cpf) {
-        return repository.findAllByCpf(cpf);
+    public Optional<User> findByCpf(String cpf) {
+        return repository.findByCpf(cpf);
     }
 
-    private Optional<User> findAllByEmail(String email) {
-        return repository.findAllByEmail(email);
+    private Optional<User> findByEmail(String email) {
+        return repository.findByEmail(email);
     }
 
     private User fromParamDtoToEntity(@Valid UserParamDto userRequest) {

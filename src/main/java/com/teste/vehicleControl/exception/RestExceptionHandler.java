@@ -15,16 +15,29 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler{
     @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity<?> handleResourceNotFoundException(UserAlreadyExistsException userAlredyExists,
+    public ResponseEntity<?> handleResourceAlredyExists(UserAlreadyExistsException exception,
             HttpServletRequest request) {
 
         ErrorDto errorDetail = new ErrorDto();
-        errorDetail.setMessage(userAlredyExists.getMessage());
+        errorDetail.setMessage(exception.getMessage());
         errorDetail.setTimestamp(new Date().getTime());
-        errorDetail.setSatus(HttpStatus.CONFLICT.value());
+        errorDetail.setSatus(HttpStatus.BAD_REQUEST.value());
         errorDetail.setSuccess(false);
 
-        return new ResponseEntity<>(errorDetail, null, HttpStatus.CONFLICT);
+        return new ResponseEntity<>(errorDetail, null, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleResourceNotFoundException(UserNotFoundException exception,
+            HttpServletRequest request) {
+
+        ErrorDto errorDetail = new ErrorDto();
+        errorDetail.setMessage(exception.getMessage());
+        errorDetail.setTimestamp(new Date().getTime());
+        errorDetail.setSatus(HttpStatus.BAD_REQUEST.value());
+        errorDetail.setSuccess(false);
+
+        return new ResponseEntity<>(errorDetail, null, HttpStatus.BAD_REQUEST);
     }
     
 }

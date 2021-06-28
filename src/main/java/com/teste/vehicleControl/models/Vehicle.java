@@ -26,7 +26,10 @@ public class Vehicle {
     private String model;
     
     @Column(name = "year")
-    private int year;
+    private String year;
+
+    @Column(name = "value")
+    private String value;
     
     @ManyToOne(fetch = FetchType.LAZY)    
     @JoinColumn(name = "userId", referencedColumnName = "id")    
@@ -56,11 +59,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -71,5 +74,15 @@ public class Vehicle {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    
 
 }
