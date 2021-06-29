@@ -12,13 +12,13 @@
 
 ## 🚀 Executando o projeto
 
-Para executar o <vehicleControl>, execute a classe `VehicleControlApplication`
+Para rodar o sistema, execute a classe `VehicleControlApplication`
 
 ## 📘 Lista de endpoints
   
-`UserController`
-POST/vehicleControl/user
-GET/vehicleControl/user/{cpfUser}
+`UserController`:
+*POST/vehicleControl/user
+*GET/vehicleControl/user/{cpfUser}
 
-`VehicleController`
-POST/vehicleController/vehicle
+`VehicleController`:
+*POST/vehicleController/vehicle
