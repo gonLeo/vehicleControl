@@ -16,9 +16,9 @@ Para rodar o sistema, execute a classe `VehicleControlApplication`
 
 ## 📘 Lista de endpoints
   
-`UserController`:
+UserController:
 *POST/vehicleControl/user
 *GET/vehicleControl/user/{cpfUser}
 
-`VehicleController`:
+VehicleController:
 *POST/vehicleController/vehicle
